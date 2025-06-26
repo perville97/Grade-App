@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.gradeapp.HelloController">
+
+    <!-- Arrière-plan -->
+    <Rectangle width="800.0" height="600.0">
+        <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop color="#667eea"/>
+                    <Stop color="#764ba2" offset="1.0"/>
+                </stops>
+            </LinearGradient>
+        </fill>
+    </Rectangle>
+
+    <!-- Éléments décoratifs -->
+    <Circle fill="rgba(255,255,255,0.1)" radius="100.0" translateX="-300.0" translateY="-200.0">
+        <effect><GaussianBlur radius="20.0"/></effect>
+    </Circle>
+
+    <Circle fill="rgba(255,255,255,0.05)" radius="150.0" translateX="350.0" translateY="180.0">
+        <effect><GaussianBlur radius="30.0"/></effect>
+    </Circle>
+
+    <!-- Contenu principal -->
+    <HBox alignment="CENTER" spacing="80.0">
+        <padding>
+            <Insets top="40.0" right="40.0" bottom="40.0" left="40.0"/>
+        </padding>
+
+        <!-- Section gauche -->
+        <VBox alignment="CENTER_LEFT" spacing="25.0" maxWidth="300.0">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Pane prefHeight="200.0" prefWidth="200.0"/>
+        </VBox>
+
+        <!-- Section droite -->
+        <VBox alignment="CENTER" spacing="25.0" style="-fx-background-color: rgba(255, 255, 255, 0.15); -fx-background-radius: 25;"
+              maxWidth="380.0">
+            <padding>
+                <Insets top="40.0" right="40.0" bottom="40.0" left="40.0"/>
+            </padding>
+
+            <Label text="Connectez-vous" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 24px;"/>
+            <Label text="Accédez à votre espace personnel" style="-fx-text-fill: rgba(255,255,255,0.8); -fx-font-size: 14px;"/>
+
+            <!-- Boutons avec fx:id -->
+            <VBox alignment="CENTER" spacing="15.0">
+                <Button fx:id="loginButton" onAction="#onLoginClicked"
+                        style="-fx-background-color: #667eea; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-radius: 25;"
+                        prefWidth="280.0" prefHeight="50.0" text="SE CONNECTER">
+                    <effect><DropShadow color="rgba(102,126,234,0.5)" radius="12.0"/></effect>
+                </Button>
+
+                <Button fx:id="registerButton" onAction="#onRegisterClicked"
+                        style="-fx-background-color: transparent; -fx-border-color: rgba(255,255,255,0.6); -fx-border-width: 2; -fx-border-radius: 25; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                        prefWidth="280.0" prefHeight="50.0" text="CRÉER UN COMPTE">
+                    <effect><DropShadow color="rgba(0,0,0,0.2)" radius="8.0"/></effect>
+                </Button>
+            </VBox>
+        </VBox>
+    </HBox>
+</StackPane>
