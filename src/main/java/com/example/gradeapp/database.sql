@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 26, 2025 at 10:54 PM
+-- Generation Time: Jun 30, 2025 at 01:11 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -29,15 +29,25 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `role` enum('admin','enseignant','eleve') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'eleve',
   `remember_token` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'dmp', 'dmp@gmail.com', '00000000', 'eleve', NULL, NULL, NULL),
+(2, 'admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL),
+(3, 'enseignant', 'enseignant@gmail.com', 'enseignant', 'enseignant', NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
