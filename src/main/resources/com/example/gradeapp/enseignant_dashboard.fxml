@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.gradeapp.EnseignantDashboard"
+      padding="20">
+
+    <Label fx:id="welcomeLabel" text="Bienvenue Enseignant !" style="-fx-font-size: 16;" />
+
+    <Button fx:id="viewMyCoursesButton" text="Voir Mes Cours" onAction="#onViewMyCourses"/>
+    <Button fx:id="viewMyClassesButton" text="Voir Mes Classes" onAction="#onViewMyClasses"/>
+    <Button fx:id="fillGradesButton" text="Remplir Notes" onAction="#onFillGrades"/>
+
+</VBox>

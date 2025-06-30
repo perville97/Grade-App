@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.gradeapp.AdminDashboard"
+      alignment="CENTER"
+      spacing="15"
+      style="-fx-background-color: #f2f4f8; -fx-padding: 40; -fx-border-radius: 10; -fx-background-radius: 10;">
+
+    <Label fx:id="welcomeLabel"
+           text="Bienvenue dans le tableau de bord administrateur !"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+    <Button fx:id="createLevelsButton" text="Créer Niveaux" onAction="#onCreateLevels"
+            styleClass="admin-button"/>
+    <Button fx:id="createClassesButton" text="Créer Classes" onAction="#onCreateClasses"
+            styleClass="admin-button"/>
+    <Button fx:id="createTeachersButton" text="Créer Enseignants" onAction="#onCreateTeachers"
+            styleClass="admin-button"/>
+    <Button fx:id="createCoursesButton" text="Créer Cours" onAction="#onCreateCourses"
+            styleClass="admin-button"/>
+    <Button fx:id="createStudentsButton" text="Créer Élèves" onAction="#onCreateStudents"
+            styleClass="admin-button"/>
+    <Button fx:id="generateAnonymatsButton" text="Générer Anonymats" onAction="#onGenerateAnonymats"
+            styleClass="admin-button"/>
+    <Button fx:id="viewResultsButton" text="Consulter Résultats" onAction="#onViewResults"
+            styleClass="admin-button"/>
+
+</VBox>

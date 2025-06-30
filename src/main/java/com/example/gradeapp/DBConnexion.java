@@ -7,7 +7,8 @@ import java.sql.SQLException;
 
 public class DBConnexion {
     // Configuration - À externaliser dans un fichier de configuration en production
-    private static final String URL = "jdbc:mysql://localhost:3306/database?useSSL=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/database?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+
     private static final String USER = "popsmoke";
     private static final String PASSWORD = "root"; // À changer absolument en production!
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";

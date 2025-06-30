@@ -10,6 +10,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.io.IOException;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Node;
+
 
 public class LoginController {
 
@@ -38,16 +46,39 @@ public class LoginController {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                showAlert("Succès", "Connexion réussie. Bienvenue, " + rs.getString("name") + " !");
-                // Tu peux ici changer de scène ou ouvrir une nouvelle fenêtre
+                String name = rs.getString("name");
+                String role = rs.getString("role");
+                showAlert("Succès", "Connexion réussie. Bienvenue, " + name + " !");
+
+                // Charger le dashboard selon le rôle
+                String fxmlFile = switch (role) {
+                    case "admin" -> "admin_dashboard.fxml";
+                    case "enseignant" -> "enseignant_dashboard.fxml";
+                    case "eleve" -> "eleve_dashboard.fxml";
+                    default -> "eleve_dashboard.fxml"; // Par défaut élève
+                };
+
+                // Charger la nouvelle vue
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+                Parent root = loader.load();
+
+                // Récupérer la scène actuelle via un champ de ta vue (ex: emailField)
+                Stage stage = (Stage) emailField.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+
             } else {
                 showAlert("Erreur", "Email ou mot de passe incorrect.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert("Erreur", "Erreur de connexion à la base de données.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Erreur", "Erreur lors du chargement de la vue.");
         }
     }
+
 
 
     @FXML
