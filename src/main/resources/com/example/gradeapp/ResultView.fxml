@@ -1,0 +1,7 @@
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.gradeapp.controllers.ResultController"
+      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+    <Label text="Consultation des résultats"/>
+    <Button text="Afficher résultats" onAction="#onViewResults"/>
+</VBox>

@@ -3,6 +3,10 @@ package com.example.gradeapp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class AdminDashboard {
 
@@ -35,38 +39,50 @@ public class AdminDashboard {
         welcomeLabel.setText("Bienvenue dans le tableau de bord administrateur !");
     }
 
+    private void openNewWindow(String fxmlFile, String title) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void onCreateLevels() {
-        System.out.println("Créer les niveaux...");
+        openNewWindow("LevelCreationView.fxml", "Créer Niveaux");
     }
 
     @FXML
     private void onCreateClasses() {
-        System.out.println("Créer les classes...");
+        openNewWindow("ClassCreationView.fxml", "Créer Classes");
     }
 
     @FXML
     private void onCreateTeachers() {
-        System.out.println("Créer les enseignants...");
+        openNewWindow("TeacherCreationView.fxml", "Créer Enseignants");
     }
 
     @FXML
     private void onCreateCourses() {
-        System.out.println("Créer les cours...");
+        openNewWindow("CourseCreationView.fxml", "Créer Cours");
     }
 
     @FXML
     private void onCreateStudents() {
-        System.out.println("Créer les élèves...");
+        openNewWindow("StudentCreationView.fxml", "Créer Élèves");
     }
 
     @FXML
     private void onGenerateAnonymats() {
-        System.out.println("Génération des anonymats...");
+        openNewWindow("AnonymatGenerationView.fxml", "Générer Anonymats");
     }
 
     @FXML
     private void onViewResults() {
-        System.out.println("Consultation de tous les résultats...");
+        openNewWindow("ResultView.fxml", "Consulter Résultats");
     }
 }
